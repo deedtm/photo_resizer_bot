@@ -1,5 +1,5 @@
 from .__tables_utils import format_values, get_table
-from .connect import cursor
+from .connect import cursor, conn
 from .constants import QUERIES
 
 
@@ -86,6 +86,10 @@ def query_wrapper(query: str, **kwargs):
     template = queries[query]
     operation = template.format(table=get_table(), **kwargs)
     cursor.execute(operation)
+    
+    # Коммит для операций изменения данных
+    if query in ["create", "delete", "delete_value", "insert", "update", "update_wh"]:
+        conn.commit()
 
     try:
         return cursor.fetchall()
