@@ -1,5 +1,4 @@
 # Info
-This is the template of telegram bot written on aiogram
+This is the bot for automatically resizing photo to format of A4 paper
 
-# Before starting
-Write your bot's token in the `config.ini`
+Link: **[Telegram](https://t.me/a4_photoresizerbot)**
