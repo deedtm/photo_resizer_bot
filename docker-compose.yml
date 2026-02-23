@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    container_name: photo_resizer_bot
+    restart: always
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
